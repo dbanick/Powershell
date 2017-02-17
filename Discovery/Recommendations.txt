@@ -1,0 +1,23 @@
+SELECT Database_Name, Filegroup, Logical_Name
+  FROM [Discovery].[dbo].[NPATTI2_520___03]
+  WHERE autogrow = 'False'
+  
+  
+  -- Find files on the C: drive
+  SELECT * --Database_Name, Filegroup, Logical_Name, filename
+  FROM [Discovery].[dbo].[NPATTI2_520___03]
+  WHERE filename like 'C:\%' -- = 'False'
+  
+  /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT *
+  FROM [Discovery].[dbo].[NPATTI2_520___02]
+  Where [IsAutoShrink] = ('Yes')
+  
+  /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT *
+  FROM [Discovery].[dbo].[NPATTI2_520___02]
+  Where [IsAutoClose] = ('Yes')
+  
+  SELECT *
+  FROM [Discovery].[dbo].[NPATTI2_520___02]
+  Where [Status] != ('ONLINE')
