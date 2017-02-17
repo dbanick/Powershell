@@ -1,0 +1,49 @@
+Basic Instructions:
+Step 1: Verify you can connect to all instances from the main server
+	update servers.txt with the correct server list
+	Run Powershell_Discovery_Run.ps1
+Step 2: Copy the CSV folder up to your laptop
+	Run Powershell_Discovery_Compile
+step 3: ??????
+Step 4: Profit
+
+******Powershell_Discovery_Run_v1.ps1******
+
+You can run without ISE
+
+Update servers.txt with list of intances to connect to (no white spaces at end of file)
+
+You may need to run Powershell as Administrator, and also set the Execution Policy via "Set-ExecutionPolicy RemoteSigned". Refer to http://technet.microsoft.com/en-us/library/ee176961.aspx
+
+This will run the Initialize-SQLpsEnvironment.ps1 script to install some of the SQL modules which are required to execute the script.
+
+This will run any scripts you place in SQL_Scripts
+
+This will generate a seperate folder for each instance's output in a subfolder "CSV"
+
+Failed servers should be logged to servers_redo.txt so you can easily rerun it (after renaming the servers.txt files)
+
+Empty files will be deleted if the script fails
+
+Empty folders will be deleted if all scripts fail
+
+
+*****Powershell_Discovery_compile_v1.ps1******
+Needs to run on a machine (laptop) with excel - does not need to interface with the server's at all
+
+This script will compile all of the csv files for a single server into one spreadsheet.
+
+Relies on ConvertCSV-ToExcel.ps1
+
+This will process all CSV files located in each subfolder of CSV.
+
+It will generate a spreadsheet of all the CSV files, then move it to Compiled_Spreadsheets.
+
+If all CSV were properly processed for a folder, the folder will be moved to "Processed_CSV"
+
+
+********
+Need to add a process to load into tables and write a script to generate recommendations
+Need to add some manual checks to compare output to OG
+Need to add a process to update OG 
+Need to add a process to compile all recommendation CSV's into a single Summary spreadsheet

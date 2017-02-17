@@ -1,0 +1,12 @@
+Please create a rule to change severity of the below types of tickets to Medium priority (from Critical)
+
+Source = Liteagent
+parameter = LogFileStringMatch
+longdescription like 'db@maint - New Maint Job'
+
+8240628
+
+
+
+
+outlook 5/28
